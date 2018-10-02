@@ -19,13 +19,21 @@ import (
 	_ "image/jpeg" // initialize decoder
 	_ "image/png"  // initialize decoder
 
-	"github.com/Q-Smith/go-ansipix-tmp/pkg/ansipix"
 	"github.com/disintegration/imaging"
 	colorful "github.com/lucasb-eyer/go-colorful"
 	"golang.org/x/crypto/ssh/terminal"
 	_ "golang.org/x/image/bmp"  // initialize decoder
 	_ "golang.org/x/image/tiff" // initialize decoder
 	_ "golang.org/x/image/webp" // initialize decoder
+)
+
+// ------------------------------------------------------------------------- //
+// Constants //
+// ------------------------------------------------------------------------- //
+
+const (
+	BlockSizeX int = 4
+	BlockSizeY int = 8
 )
 
 // ------------------------------------------------------------------------- //
@@ -126,7 +134,7 @@ func loadImageFromReader(reader io.Reader) (image.Image, error) {
 }
 
 func scaleImage(img image.Image) image.Image {
-	sfy, sfx := ansipix.BlockSizeY, ansipix.BlockSizeX // 8x4 --> with dithering
+	sfy, sfx := BlockSizeY, BlockSizeX // 8x4 --> with dithering
 	tx, ty, err := getTerminalSize()
 	if err != nil {
 		panic(err)
@@ -140,8 +148,8 @@ func createAnsiImage(img image.Image, bg color.Color) *ansiImage {
 	bounds := img.Bounds()
 
 	yMax, xMax := bounds.Max.Y, bounds.Max.X
-	yMax = yMax / ansipix.BlockSizeY // always sets 1 ANSIPixel block...
-	xMax = xMax / ansipix.BlockSizeX // per 8x4 real pixels --> with dithering
+	yMax = yMax / BlockSizeY // always sets 1 ANSIPixel block...
+	xMax = xMax / BlockSizeX // per 8x4 real pixels --> with dithering
 
 	rgbaOut := composeImage(img, bg)
 
@@ -209,16 +217,16 @@ func newAnsiImage(w, h int, bg color.Color) *ansiImage {
 func newAnsiPixels(img *ansiImage, rgba *image.RGBA) {
 	// calculate brightness
 
-	pixelCount := ansipix.BlockSizeY * ansipix.BlockSizeX
+	pixelCount := BlockSizeY * BlockSizeX
 	for y := 0; y < img.h; y++ {
 		for x := 0; x < img.w; x++ {
 
 			var sumR, sumG, sumB, sumBri float64
-			for dy := 0; dy < ansipix.BlockSizeY; dy++ {
-				py := ansipix.BlockSizeY*y + dy
+			for dy := 0; dy < BlockSizeY; dy++ {
+				py := BlockSizeY*y + dy
 
-				for dx := 0; dx < ansipix.BlockSizeX; dx++ {
-					px := ansipix.BlockSizeX*x + dx
+				for dx := 0; dx < BlockSizeX; dx++ {
+					px := BlockSizeX*x + dx
 
 					pixel := rgba.At(px, py)
 					color, _ := colorful.MakeColor(pixel)
