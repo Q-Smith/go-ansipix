@@ -35,13 +35,16 @@ To simplify the steps in rendering an image as characters here are the steps I t
 [rainbow256]: /assets/rainbow-256.png "ANSI 256 Colors"
 [rainbowBG256]: /assets/rainbow-background-256.png "ANSI 256 Colors"
 [yakfChars]: /assets/yie-ar-kung-fu-characters.png "Yie-Ar-Kung-Fu Characters"
-[yakfAnsiChars]: /assets/yie-ar-kung-fu-ansichars.png "Yie-Ar-Kung-Fu ANSI Characters"
+[yakfAnsiChars1]: /assets/yie-ar-kung-fu-ansichars1.png "Yie-Ar-Kung-Fu ANSI Characters"
+[yakfAnsiChars2]: /assets/yie-ar-kung-fu-ansichars2.png "Yie-Ar-Kung-Fu ANSI Characters"
 
 
 Screen | Captures
 ------------ | -------------
 ![ANSI 256 Colors][rainbow256] | ![ANSI 256 Colors][rainbowBG256]
-![Yie-Ar-Kung-Fu][yakfChars] | ![Yie-Ar-Kung-Fu][yakfAnsiChars]
+![Yie-Ar-Kung-Fu][yakfChars] | ![Yie-Ar-Kung-Fu][yakfAnsiChars1]
+
+![Yie-Ar-Kung-Fu][yakfAnsiChars2]
 
 # References
 
