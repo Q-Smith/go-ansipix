@@ -34,12 +34,14 @@ To simplify the steps in rendering an image as characters here are the steps I t
 
 [rainbow256]: /assets/rainbow-256.png "ANSI 256 Colors"
 [rainbowBG256]: /assets/rainbow-background-256.png "ANSI 256 Colors"
+[yakfChars]: /assets/yie-ar-kung-fu-characters.png "Yie-Ar-Kung-Fu Characters"
+[yakfAnsiChars]: /assets/yie-ar-kung-fu-ansichars.png "Yie-Ar-Kung-Fu ANSI Characters"
 
 
 Screen | Captures
 ------------ | -------------
 ![ANSI 256 Colors][rainbow256] | ![ANSI 256 Colors][rainbowBG256]
-![Game Screen](/Chip8.Docs/CPU-Screen.png) | ![Game Screen](/Chip8.Docs/Memory-Screen.png)
+![Yie-Ar-Kung-Fu][yakfChars] | ![Yie-Ar-Kung-Fu][yakfAnsiChars]
 
 # References
 
@@ -55,3 +57,4 @@ Screen | Captures
 * http://www.roysac.com/tutorial/asciiarttutorial.html
 * http://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
 * https://robertheaton.com/2018/06/12/programming-projects-for-advanced-beginners-ascii-art/
+* https://www.fightersgeneration.com/games/yie-ar-kung-fu.html
